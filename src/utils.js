@@ -1,12 +1,13 @@
 // Your code here
 
-export function isPalindrome(word){
-    let j = word.length - 1;
-    for(let i = 0; i < word.length / 2; i++){
-        if(word[i] != word[j]){
-            return false;
-        }
-        j--;
-    }
-    return true;
+function reverse(string) {
+  return string.split("").reverse().join("");
+}
+
+export function isPalindrome(word) {
+  if (!/^[A-Za-z]+$/.test(word)) {
+    throw new Error("Invalid input");
+  }
+  const lowerCaseWord = word.toLowerCase();
+  return lowerCaseWord === reverse(lowerCaseWord);
 }
